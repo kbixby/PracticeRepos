@@ -860,3 +860,117 @@ java.net.UnknownHostException: marketplace.eclipse.org
 	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
 	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.557
+!MESSAGE templateRoot: C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.583
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.jshintrc
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.599
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\.jsdtscope
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.620
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\com.eclipsesource.jshint.ui.prefs
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.670
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.core.prefs
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.683
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.ui.superType.container
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.705
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.ui.superType.name
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.710
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.sublime-project
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.734
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\README.md
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:46.816
+!MESSAGE templateRoot: C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-world
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:48.114
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-world\build.gradle
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:48.148
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-world\hello-world-server.js
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:48.176
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-world\package.json
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:48.678
+!MESSAGE templateRoot: C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\tern-node
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:12:48.679
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\tern-node\.tern-project
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.140
+!MESSAGE templateRoot: C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.142
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.jshintrc
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.148
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\.jsdtscope
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.152
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\com.eclipsesource.jshint.ui.prefs
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.159
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.core.prefs
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.166
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.ui.superType.container
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.171
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.settings\org.eclipse.wst.jsdt.ui.superType.name
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.175
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\.sublime-project
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.180
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\common-templates\README.md
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.252
+!MESSAGE templateRoot: C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-html
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.255
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-html\index.html
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.268
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-html\index.js
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.278
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\hello-html\README.md
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.325
+!MESSAGE templateRoot: C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\tern-node
+
+!ENTRY org.nodeclipse.ui 1 0 2017-12-15 09:14:33.326
+!MESSAGE RelativityFileSystemStructureProvider.getContents() called. elemnt=C:\Users\Katie\eclipse\jee-oxygen\eclipse\configuration\org.eclipse.osgi\1260\0\.cp\templates\tern-node\.tern-project
+
+!ENTRY org.eclipse.lsp4e 1 0 2017-12-15 09:16:06.020
+!MESSAGE Non IFiles not supported yet
+
+!ENTRY org.eclipse.lsp4e 1 0 2017-12-15 09:16:06.024
+!MESSAGE Non IFiles not supported yet
+
+!ENTRY org.eclipse.lsp4e 1 0 2017-12-15 09:21:11.824
+!MESSAGE Non IFiles not supported yet
+
+!ENTRY org.eclipse.lsp4e 1 0 2017-12-15 09:21:11.827
+!MESSAGE Non IFiles not supported yet
+
+!ENTRY org.eclipse.lsp4e 1 0 2017-12-15 09:21:33.843
+!MESSAGE Non IFiles not supported yet
+
+!ENTRY org.eclipse.lsp4e 1 0 2017-12-15 09:21:33.845
+!MESSAGE Non IFiles not supported yet
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-15 09:30:25.735
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-15 09:30:25.738
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
