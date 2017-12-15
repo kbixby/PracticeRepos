@@ -3,41 +3,160 @@
 <head>
 <title>Team Builder</title>
 <link rel="icon" href="images/JirachiIcon.png">
-<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+	rel="stylesheet">
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+	integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+	integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+	crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <style>
-body{
+body {
 	font-family: "Press Start 2P";
 }
-#banner{
-	text-align:center;
-	font-size:50px;
-	width:100%;
+
+#banner {
+	text-align: center;
+	font-size: 50px;
+	width: 100%;
 	background-image: url(images/banner.png);
-	background-size:100% 100%;
-	border-radius:25px;
+	background-size: 100% 100%;
+	border-radius: 25px;
 	border: 2px solid black;
-	padding-top:60px;
-	padding-bottom:50px;
+	padding-top: 60px;
+	padding-bottom: 50px;
+}
+#select{
+	width:14%;
+	margin-left:1%;
+	margin-right:1%;
+	background-color:#898f99;
+	border: 2px solid black;
+	border-radius:25px;
+	float:left;
+	text-align:center;
+	font-size:10px;
+	padding-top:4px;
+}
+#chooseThem{
+	text-align:center;
+	height:200px;
+}
+select{
+	border-radius:25px;
+	margin-bottom:2px;
+	margin-right:1px;
+	margin-top:3px;
+	width:90%;
+}
+#displayPoke{
+	height:100px;
+	width:100px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border-radius:25px;
+	border:1px solid black;
+	background-image: url("images/clouds.png");
+}
+#viewThem{
+	text-align:center;
+	width:50%;
+	border-radius:25px;
+	border:2px solid black;
+	padding:5px 5px 5px 5px;
+	margin: 5px 5px 5px 5px;
+}
+circle{
+	float:left;
+}
+#zoomPokemon{
+	width:20%;
+	float:right;
+	text-align:center;
+	border:2px solid black;
+}
+#zoomedImage{
+	width:100px;
+	height:100px;
 }
 
 </style>
 
 </head>
 <body>
-	
+	<div ng-app="myApp" ng-controller="myCtrl">
+
 	<div id="banner" class="jumbotron">Pokemon Team Builder</div>
+	<br>
+	<br>
+
+	<div id="chooseThem" class="container-fluid">
+		<div id="select">
+			Teammate One
+			<select ng-model="selectedOne">
+				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			</select>
+			<image id="displayPoke" src={{selectedOne}} class="img-thumbnail">
+		</div>
+		<div id="select">
+			Teammate Two
+			<select ng-model="selectedTwo">
+				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			</select>
+			<image id="displayPoke" src={{selectedTwo}} class="img-thumbnail">
+		</div>
+		<div id="select">
+			Teammate Three
+			<select ng-model="selectedThree">
+				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			</select>
+			<image id="displayPoke" src={{selectedThree}} class="img-thumbnail">
+		</div>
+		<div id="select">
+			Teammate Four
+			<select ng-model="selectedFour">
+				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			</select>
+			<image id="displayPoke" src={{selectedFour}} class="img-thumbnail">
+		</div>
+		<div id="select">
+			Teammate Five
+			<select ng-model="selectedFive">
+				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			</select>
+			<image id="displayPoke" src={{selectedFive}} class="img-thumbnail">
+		</div>
+		<div id="select">
+			Teammate Six
+			<select ng-model="selectedSix">
+				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			</select>
+			<image id="displayPoke" src={{selectedSix}} class="img-thumbnail">
+		</div>
+	</div>
+	
+	<div id="viewThem">
+		<svg height="70" width="70" ng-repeat="pok in allPokemon">
+  			<circle cx="34" cy="34" r="30" stroke="{{colorTwo(pok.types)}}" stroke-width="5" fill={{colorPick(pok.types[0])}} />
+			<image href={{pok.img}} x= 13 y = 12 height="40px" width="40px" ng-mouseover="pokeData(pok)" ng-attr-title="hi"/>
+		</svg>
+	</div>
+	<div id="zoomPokemon">
+		<image id="zoomedImage" src="images/whosthat.png"></image>
+	</div>
 
 
 
 
-
-
-
+	</div>
 
 	<script src="index.js"></script>
 </body>

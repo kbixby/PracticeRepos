@@ -1,0 +1,25 @@
+<md-card class="card">
+
+  <md-form-field *ngIf="editMode">
+    <input mdInput placeholder="Text of the question" [(ngModel)]="question.text">
+  </md-form-field>
+
+  <md-card-header>
+    <md-card-title *ngIf="!editMode">{{ question.text }}</md-card-title>
+  </md-card-header>
+
+  <md-card-content>
+    <app-answer [(answers)]="question.answers" [editMode]="editMode" [editable]="editable" (selectedAnswer)="handleSelectAnswer($event)"></app-answer>
+  </md-card-content>
+
+
+  <md-card-actions *ngIf="editable">
+    <button md-icon-button (click)="editMode = !editMode" *ngIf="!editMode">
+      <md-icon class="md-24">mode_edit</md-icon>
+    </button>
+    <button md-mini-fab color="primary" (click)="editMode = !editMode" *ngIf="editMode">
+      <md-icon class="md-24">check</md-icon>
+    </button>
+  </md-card-actions>
+
+</md-card>

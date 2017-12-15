@@ -1,0 +1,42 @@
+<md-card>
+	<div class="welcome funnyText">
+		<h1>Welcome to QuizzManiac!</h1>
+		<p>This is an demo app to showcase several aspects of Angular.</p>
+
+		<p>You can create a new quizz adding questions and anwsers or play an existing quizz:</p>
+
+		<div class="button-row">
+		</div>
+
+		<ul>
+			<li *ngFor="let q of quizzes">
+				<button md-raised-button (click)="playQuizz(q.id)">
+					<md-icon>play_arrow</md-icon>
+					{{ q.name }}
+				</button>
+			</li>
+			<li>
+				<button md-raised-button color="primary" (click)="newQuizz()">
+					<md-icon>add</md-icon>
+					Create a new one
+				</button>
+			</li>
+		</ul>
+	</div>
+</md-card>
+
+
+<md-card id="chuck"> 
+	<md-card-header>
+		<md-card-title>If you need inspiration you can ask <strong>Chuck Norris</strong> for some</md-card-title> 
+	</md-card-header> 
+
+	<md-card-content>
+		<button md-raised-button (click)="chuckNorris()">Gimme some roundhouse kick</button>
+		
+		<div *ngIf="chuckNorrisWisdom">
+			<img [src]="chuckNorrisWisdom.icon_url" alt="Chuck Norris Countenance">
+			<p>{{ chuckNorrisWisdom.value }}</p>
+		</div>
+	</md-card-content> 
+</md-card>

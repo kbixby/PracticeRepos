@@ -1,0 +1,14 @@
+<button md-raised-button color="primary" (click)="newQuizz()">
+    <md-icon>add</md-icon>
+    Create a quizz
+</button>
+
+<h2>Existing quizzes:</h2>
+<ul>
+    <li *ngFor="let q of quizzes">
+        <button md-raised-button (click)="goToQuizz(q.id)">
+            <md-icon>settings</md-icon>
+            {{ q.name }}
+        </button>
+    </li>
+</ul>

@@ -1,0 +1,26 @@
+<div *ngIf="results && results.answers && results.answers.length">
+  <button md-raised-button color="primary" (click)="goToStart()">
+    Try again!
+  </button>
+  <md-list>
+    <md-list-item *ngFor="let r of results.answers">
+      <md-icon class="correct" *ngIf="r.answer.isCorrect" mdListIcon>check</md-icon>
+      <md-icon class="incorrect" *ngIf="!r.answer.isCorrect" mdListIcon>clear</md-icon>
+      
+      <h1 mdLine>{{r.question.text}}</h1>
+      <p mdLine>
+        <span> You said <strong>{{r.answer.text}}</strong></span>
+      </p>
+      <p mdLine *ngIf="!r.answer.isCorrect">
+        <span class="correct"> Correct answer was <strong>{{r.correctAnswer.text}}</strong></span>
+      </p>
+    </md-list-item>
+  </md-list>
+</div>
+  
+<div *ngIf="!results || !results.answers || results.answers.length === 0">
+  <h2>No results, do a quizz and come back again</h2>
+  <button md-raised-button color="primary" (click)="goToStart()">
+    Start again
+  </button>
+</div>

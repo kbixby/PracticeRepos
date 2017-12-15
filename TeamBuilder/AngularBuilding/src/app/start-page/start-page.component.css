@@ -1,0 +1,33 @@
+.content {
+}
+
+.welcome {
+	width: 400px;
+	margin: 0 auto;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	margin: 15px;
+}
+
+#chuck {
+	margin-top: 50px;
+}
+
+#chuck img {
+	width: 80px;
+	margin-top: 20px;
+}
+
+#chuck p {
+	width: 70%;
+	float: right;
+}
+
+.funnyText {
+	font-family: Pangolin, cursive;
+}

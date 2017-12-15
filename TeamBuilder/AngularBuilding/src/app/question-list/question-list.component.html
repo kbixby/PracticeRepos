@@ -1,0 +1,30 @@
+<md-form-field>
+  <input mdInput placeholder="Quizz name" [(ngModel)]="quizz.name">
+</md-form-field>
+
+<div>
+  <md-slide-toggle [(checked)]="showDebug" (change)="showDebug = !showDebug">Show debug info</md-slide-toggle>
+
+  <button class="right" md-raised-button (click)="save()" color="primary">Save quizz</button>
+</div>
+
+<div *ngIf="showDebug" class="debugPanel">
+  <h2>Quizz JSON Object:</h2>
+  <pre>{{ quizz | json}}</pre>
+</div>
+
+<md-list>
+
+  <h2 mdSubheader>Questions:</h2>
+
+  <button md-fab (click)="newQuestion()">
+      <md-icon>playlist_add</md-icon>
+  </button>
+
+  <div *ngFor="let q of quizz.questions; let i=index">
+    <p>Question #{{ i+1 }}</p>
+    <button md-button (click)="duplicate(q)">Duplicate</button>
+    <button md-button (click)="remove(i)" color="warn">Remove</button>
+    <app-question class="question-card" [question]="q" [editable]="true"></app-question>
+  </div>
+</md-list>

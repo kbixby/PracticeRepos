@@ -1,0 +1,9 @@
+.selected-value {
+    margin: 15px 0;
+}
+
+.card {
+    margin: 20px;
+    width: 35%;
+    font-family: Pangolin, cursive;
+}

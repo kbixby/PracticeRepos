@@ -1,0 +1,12 @@
+<md-slide-toggle [(checked)]="showDebug" (change)="showDebug = !showDebug">Show quizz debug info</md-slide-toggle>
+
+<div *ngIf="showDebug" class="debugPanel">
+  <h2>Quizz:</h2>
+  <pre>{{ quizz | json}}</pre>
+</div>
+
+
+<h2>{{ quizz.name }}</h2>
+
+<app-question [question]="currentQuestion" [editable]="false" (selectedAnswer)="handleSelectAnswer($event)"></app-question>
+
