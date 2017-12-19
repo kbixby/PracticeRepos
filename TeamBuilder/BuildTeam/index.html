@@ -32,7 +32,7 @@ body {
 	border-radius: 25px;
 	border: 2px solid black;
 	padding-top: 60px;
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 }
 #select{
 	width:14%;
@@ -45,10 +45,13 @@ body {
 	text-align:center;
 	font-size:10px;
 	padding-top:4px;
+	padding-bottom:10px;
 }
 #chooseThem{
-	text-align:center;
-	height:200px;
+	height:600px;
+	border: 2px solid black;
+	border-radius:25px;
+	padding-top:10px;
 }
 select{
 	border-radius:25px;
@@ -65,29 +68,95 @@ select{
 	border-radius:25px;
 	border:1px solid black;
 	background-image: url("images/clouds.png");
+	float:center;
 }
 #viewThem{
 	text-align:center;
-	width:50%;
+	width:60%;
 	border-radius:25px;
 	border:2px solid black;
 	padding:5px 5px 5px 5px;
 	margin: 5px 5px 5px 5px;
+	float:left;
 }
 circle{
 	float:left;
 }
 #zoomPokemon{
-	width:20%;
+	width:35%;
 	float:right;
 	text-align:center;
+	border-radius:25px;
+	margin-top:5px;
 	border:2px solid black;
 }
 #zoomedImage{
-	width:100px;
-	height:100px;
+	width:50%;
+	border-radius:25px;
+	background-image:url("images/forest.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	float:center;
+}
+#outerHP{
+	width:80%;
+	background-color:white;
+	display:block;
+	margin-top:20px;
+	margin-left:25px;
+	margin-bottom:10px;
+	text-align:center;
+	border-radius:5px;
+}
+#outerStats{
+	width:80%;
+	background-color:white;
+	display:block;
+	margin-top:5px;
+	margin-bottom:10px;
+	text-align:center;
+	border-radius:5px;
+	margin-left:25px;
 }
 
+#outerAvgStats{
+	width:80%;
+	background-color:white;
+	display:block;
+	margin-top:5px;
+	margin-bottom:10px;
+	text-align:center;
+	border-radius:5px;
+	margin-left:125px;
+}
+#displayGroupAvgs{
+	width:100%;
+	float:left;
+}
+#displayGroup{
+	width:100%;
+}
+#displayAverages{
+	text-align:center;
+	width:90%;
+	border-radius:25px;
+	border:2px solid black;
+	background-color:#898f99;
+	margin-top:350px;
+	margin-left:auto;
+	margin-right:auto;
+	height:225px;
+}
+#typesZoomed{
+	width:39%;
+	margin-top:5px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:5px;
+}
+#zoomedName{
+	margin-top:5px;
+}
 </style>
 
 </head>
@@ -100,57 +169,418 @@ circle{
 
 	<div id="chooseThem" class="container-fluid">
 		<div id="select">
-			Teammate One
-			<select ng-model="selectedOne">
-				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			Teammate One 
+			<select ng-model="selectedOne" ng-change="changeOne()">
+				<option ng-repeat="pok in allPokemon" value="{{pok}}" style="background: {{colorPick(pok.types [ 0 ])">{{pok.name}}</option>
 			</select>
-			<image id="displayPoke" src={{selectedOne}} class="img-thumbnail">
+			<div id="displayGroup">
+				<image id="displayPoke" ng-src={{imageOne}} class="img-thumbnail"></image>
+			</div>
+			<div id="displayGroup">
+				<div ng-style="t1OneStyle" ng-bind="t1One"></div>
+				<div ng-style="t2OneStyle" ng-bind="t2One"></div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">HP:</span>
+				<div id="outerHP">
+					<div ng-style="oneHPInStyle" ng-bind="oneHPIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Ak:</span>
+				<div id="outerStats">
+					<div ng-style="oneAttackInStyle" ng-bind="oneAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Df:</span>
+				<div id="outerStats">
+					<div ng-style="oneDefenseInStyle" ng-bind="oneDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SA:</span>
+				<div id="outerStats">
+					<div ng-style="oneSpAttackInStyle" ng-bind="oneSpAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SD:</span>
+				<div id="outerStats">
+					<div ng-style="oneSpDefenseInStyle" ng-bind="oneSpDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp:</span>
+				<div id="outerStats">
+					<div ng-style="oneSpeedInStyle" ng-bind="oneSpeedIn"></div>
+				</div>
+			</div>
 		</div>
+		
 		<div id="select">
 			Teammate Two
-			<select ng-model="selectedTwo">
-				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			<select ng-model="selectedTwo" ng-change="changeTwo()">
+				<option ng-repeat="pok in allPokemon" value="{{pok}}" style="background: {{colorPick(pok.types [ 0 ])">{{pok.name}}</option>
 			</select>
-			<image id="displayPoke" src={{selectedTwo}} class="img-thumbnail">
+			<div id="displayGroup">
+				<image id="displayPoke" ng-src={{imageTwo}} class="img-thumbnail"></image>
+			</div>
+			<div id="displayGroup">
+				<div ng-style="t1TwoStyle" ng-bind="t1Two"></div>
+				<div ng-style="t2TwoStyle" ng-bind="t2Two"></div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">HP:</span>
+				<div id="outerHP">
+					<div ng-style="twoHPInStyle" ng-bind="twoHPIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Ak:</span>
+				<div id="outerStats">
+					<div ng-style="twoAttackInStyle" ng-bind="twoAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Df:</span>
+				<div id="outerStats">
+					<div ng-style="twoDefenseInStyle" ng-bind="twoDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SA:</span>
+				<div id="outerStats">
+					<div ng-style="twoSpAttackInStyle" ng-bind="twoSpAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SD:</span>
+				<div id="outerStats">
+					<div ng-style="twoSpDefenseInStyle" ng-bind="twoSpDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp:</span>
+				<div id="outerStats">
+					<div ng-style="twoSpeedInStyle" ng-bind="twoSpeedIn"></div>
+				</div>
+			</div>
 		</div>
+		
 		<div id="select">
 			Teammate Three
-			<select ng-model="selectedThree">
-				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+				<select ng-model="selectedThree" ng-change="changeThree()">
+				<option ng-repeat="pok in allPokemon" value="{{pok}}" style="background: {{colorPick(pok.types [ 0 ])">{{pok.name}}</option>
 			</select>
-			<image id="displayPoke" src={{selectedThree}} class="img-thumbnail">
+			<div id="displayGroup">
+				<image id="displayPoke" ng-src={{imageThree}} class="img-thumbnail"></image>
+			</div>
+			<div id="displayGroup">
+				<div ng-style="t1ThreeStyle" ng-bind="t1Three"></div>
+				<div ng-style="t2ThreeStyle" ng-bind="t2Three"></div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">HP:</span>
+				<div id="outerHP">
+					<div ng-style="threeHPInStyle" ng-bind="threeHPIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Ak:</span>
+				<div id="outerStats">
+					<div ng-style="threeAttackInStyle" ng-bind="threeAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Df:</span>
+				<div id="outerStats">
+					<div ng-style="threeDefenseInStyle" ng-bind="threeDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SA:</span>
+				<div id="outerStats">
+					<div ng-style="threeSpAttackInStyle" ng-bind="threeSpAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SD:</span>
+				<div id="outerStats">
+					<div ng-style="threeSpDefenseInStyle" ng-bind="threeSpDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp:</span>
+				<div id="outerStats">
+					<div ng-style="threeSpeedInStyle" ng-bind="threeSpeedIn"></div>
+				</div>
+			</div>
 		</div>
+		
 		<div id="select">
 			Teammate Four
-			<select ng-model="selectedFour">
-				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+			<select ng-model="selectedFour" ng-change="changeFour()">
+				<option ng-repeat="pok in allPokemon" value="{{pok}}" style="background: {{colorPick(pok.types [ 0 ])">{{pok.name}}</option>
 			</select>
-			<image id="displayPoke" src={{selectedFour}} class="img-thumbnail">
+			<div id="displayGroup">
+				<image id="displayPoke" ng-src={{imageFour}} class="img-thumbnail"></image>
+			</div>
+			<div id="displayGroup">
+				<div ng-style="t1FourStyle" ng-bind="t1Four"></div>
+				<div ng-style="t2FourStyle" ng-bind="t2Four"></div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">HP:</span>
+				<div id="outerHP">
+					<div ng-style="fourHPInStyle" ng-bind="fourHPIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Ak:</span>
+				<div id="outerStats">
+					<div ng-style="fourAttackInStyle" ng-bind="fourAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Df:</span>
+				<div id="outerStats">
+					<div ng-style="fourDefenseInStyle" ng-bind="fourDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SA:</span>
+				<div id="outerStats">
+					<div ng-style="fourSpAttackInStyle" ng-bind="fourSpAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SD:</span>
+				<div id="outerStats">
+					<div ng-style="fourSpDefenseInStyle" ng-bind="fourSpDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp:</span>
+				<div id="outerStats">
+					<div ng-style="fourSpeedInStyle" ng-bind="fourSpeedIn"></div>
+				</div>
+			</div>
 		</div>
+		
 		<div id="select">
 			Teammate Five
-			<select ng-model="selectedFive">
-				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+				<select ng-model="selectedFive" ng-change="changeFive()">
+				<option ng-repeat="pok in allPokemon" value="{{pok}}" style="background: {{colorPick(pok.types [ 0 ])">{{pok.name}}</option>
 			</select>
-			<image id="displayPoke" src={{selectedFive}} class="img-thumbnail">
+			<div id="displayGroup">
+				<image id="displayPoke" ng-src={{imageFive}} class="img-thumbnail"></image>
+			</div>
+			<div id="displayGroup">
+				<div ng-style="t1FiveStyle" ng-bind="t1Five"></div>
+				<div ng-style="t2FiveStyle" ng-bind="t2Five"></div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">HP:</span>
+				<div id="outerHP">
+					<div ng-style="fiveHPInStyle" ng-bind="fiveHPIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Ak:</span>
+				<div id="outerStats">
+					<div ng-style="fiveAttackInStyle" ng-bind="fiveAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Df:</span>
+				<div id="outerStats">
+					<div ng-style="fiveDefenseInStyle" ng-bind="fiveDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SA:</span>
+				<div id="outerStats">
+					<div ng-style="fiveSpAttackInStyle" ng-bind="fiveSpAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SD:</span>
+				<div id="outerStats">
+					<div ng-style="fiveSpDefenseInStyle" ng-bind="fiveSpDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp:</span>
+				<div id="outerStats">
+					<div ng-style="fiveSpeedInStyle" ng-bind="fiveSpeedIn"></div>
+				</div>
+			</div>
 		</div>
+		
 		<div id="select">
 			Teammate Six
-			<select ng-model="selectedSix">
-				<option ng-repeat="pok in allPokemon" value="{{pok.img}}" style="background:{{colorPick(pok.types[0])}}">{{pok.name}}</option>
+				<select ng-model="selectedSix" ng-change="changeSix()">
+				<option ng-repeat="pok in allPokemon" value="{{pok}}" style="background: {{colorPick(pok.types [ 0 ])">{{pok.name}}</option>
 			</select>
-			<image id="displayPoke" src={{selectedSix}} class="img-thumbnail">
+			<div id="displayGroup">
+				<image id="displayPoke" ng-src={{imageSix}} class="img-thumbnail"></image>
+			</div>
+			<div id="displayGroup">
+				<div ng-style="t1SixStyle" ng-bind="t1Six"></div>
+				<div ng-style="t2SixStyle" ng-bind="t2Six"></div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">HP:</span>
+				<div id="outerHP">
+					<div ng-style="sixHPInStyle" ng-bind="sixHPIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Ak:</span>
+				<div id="outerStats">
+					<div ng-style="sixAttackInStyle" ng-bind="sixAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Df:</span>
+				<div id="outerStats">
+					<div ng-style="sixDefenseInStyle" ng-bind="sixDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SA:</span>
+				<div id="outerStats">
+					<div ng-style="sixSpAttackInStyle" ng-bind="sixSpAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">SD:</span>
+				<div id="outerStats">
+					<div ng-style="sixSpDefenseInStyle" ng-bind="sixSpDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroup">
+				<span
+					style="font-size: 6px; text-align: left; float: left; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp:</span>
+				<div id="outerStats">
+					<div ng-style="sixSpeedInStyle" ng-bind="sixSpeedIn"></div>
+				</div>
+			</div>
 		</div>
+		
+		
+		
+		
+		
+		<div id="displayAverages">
+			<h3>Team Averages</h3>
+			<div id="displayGroupAvgs">
+				<span
+					style="font-size: 15px; text-align: left; float: left; margin-left: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">HP:</span>
+				<div id="outerAvgStats">
+					<div ng-style="avgHPInStyle" ng-bind="avgHPIn"></div>
+				</div>
+			</div>
+			<div id="displayGroupAvgs">
+				<span
+					style="font-size: 15px; text-align: left; float: left; margin-left: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Att:</span>
+				<div id="outerAvgStats">
+					<div ng-style="avgAttackInStyle" ng-bind="avgAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroupAvgs">
+				<span
+					style="font-size: 15px; text-align: left; float: left; margin-left: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Def:</span>
+				<div id="outerAvgStats">
+					<div ng-style="avgDefenseInStyle" ng-bind="avgDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroupAvgs">
+				<span
+					style="font-size: 15px; text-align: left; float: left; margin-left: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp.Att:</span>
+				<div id="outerAvgStats">
+					<div ng-style="avgSpAttackInStyle" ng-bind="avgSpAttackIn"></div>
+				</div>
+			</div>
+			<div id="displayGroupAvgs">
+				<span
+					style="font-size: 15px; text-align: left; float: left; margin-left: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Sp.Def:</span>
+				<div id="outerAvgStats">
+					<div ng-style="avgSpDefenseInStyle" ng-bind="avgSpDefenseIn"></div>
+				</div>
+			</div>
+			<div id="displayGroupAvgs">
+				<span
+					style="font-size: 15px; text-align: left; float: left; margin-left: 15px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">Speed:</span>
+				<div id="outerAvgStats">
+					<div ng-style="avgSpeedInStyle" ng-bind="avgSpeedIn"></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
 	</div>
+	
+	
+	
+	
+	
+	
+	
 	
 	<div id="viewThem">
 		<svg height="70" width="70" ng-repeat="pok in allPokemon">
   			<circle cx="34" cy="34" r="30" stroke="{{colorTwo(pok.types)}}" stroke-width="5" fill={{colorPick(pok.types[0])}} />
-			<image href={{pok.img}} x= 13 y = 12 height="40px" width="40px" ng-mouseover="pokeData(pok)" ng-attr-title="hi"/>
+			<image href={{pok.img}} x= 13 y = 12 height="40px" width="40px" ng-click="pokeData(pok)" ng-attr-title="hi"/>
 		</svg>
 	</div>
 	<div id="zoomPokemon">
-		<image id="zoomedImage" src="images/whosthat.png"></image>
+		<div id="displayGroup">
+		<image id="zoomedImage" ng-src={{imageZoomed}}></image></div>
+		<div id="zoomedName" ng-bind="zoomName"></div>
+		<div id="typesZoomed">
+		<div id="typeOneZoom" ng-style="t1ZoomStyle" ng-bind="t1Zoom"></div>
+		<div id="typeTwoZoom" ng-style="t2ZoomStyle" ng-bind="t2Zoom"></div>
+		</div>
 	</div>
 
 
