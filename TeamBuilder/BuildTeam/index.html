@@ -157,6 +157,76 @@ circle{
 #zoomedName{
 	margin-top:5px;
 }
+#zoomTypesStats{
+	float:left;
+	text-align:left;
+	margin-left:10px;
+	margin-top:10px;
+	margin-bottom:10px;
+	width:90%;
+}
+#zoomSStr{
+	background-color:#075b00;
+	border: 2px solid #043a00;
+	border-radius:25px;
+	padding:10px 5px 5px 5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:0.6vw;
+}
+#zoomSStrIn{
+	padding:5px 5px 2px 5px;
+}
+#zoomStr{
+	background-color:#0fba00;
+	border: 2px solid #086b00;
+	border-radius:25px;
+	padding:10px 5px 5px 5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:0.6vw;
+}
+#zoomStrIn{
+	padding:5px 5px 2px 5px;
+}
+#zoomWeak{
+	background-color: #f43022;
+	border: 2px solid #c60d00;
+	border-radius:25px;
+	padding:10px 5px 5px 5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:0.6vw;
+}
+#zoomWeakIn{
+	padding:5px 5px 2px 5px;
+}
+#zoomSWeak{
+	background-color: #c40d00;
+	border: 2px solid #930900;
+	border-radius:25px;
+	padding:10px 5px 5px 5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:0.6vw;
+}
+#zoomSWeakIn{
+	padding:5px 5px 2px 5px;
+}
+#zoomImmune{
+	background-color: #1e1e1e;
+	border: 2px solid black;
+	border-radius:25px;
+	padding:10px 5px 5px 5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	color:white;
+	font-size:0.6vw;
+}
+#zoomImmuneIn{
+	padding:5px 5px 2px 5px;
+	color:white;
+}
 </style>
 
 </head>
@@ -554,6 +624,14 @@ circle{
 			</div>
 		</div>
 		
+		<div id="teamTypeChart">
+			
+		
+		
+		
+		
+		</div>
+		
 		
 		
 		
@@ -575,11 +653,30 @@ circle{
 	</div>
 	<div id="zoomPokemon">
 		<div id="displayGroup">
-		<image id="zoomedImage" ng-src={{imageZoomed}}></image></div>
-		<div id="zoomedName" ng-bind="zoomName"></div>
-		<div id="typesZoomed">
-		<div id="typeOneZoom" ng-style="t1ZoomStyle" ng-bind="t1Zoom"></div>
-		<div id="typeTwoZoom" ng-style="t2ZoomStyle" ng-bind="t2Zoom"></div>
+			<image id="zoomedImage" ng-src={{imageZoomed}}></image></div>
+			<div id="zoomedName" ng-bind="zoomName"></div>
+			<div id="typesZoomed">
+			<div id="typeOneZoom" ng-style="t1ZoomStyle" ng-bind="t1Zoom"></div>
+			<div id="typeTwoZoom" ng-style="t2ZoomStyle" ng-bind="t2Zoom"></div>
+		</div>
+		<div id="displayGroupAvgs">
+			<div id="zoomTypesStats">
+				<div id="zoomSWeak">
+					Super Weak To:<div id="zoomSWeakIn" ng-bind="zoomSuperWeaknesses"></div>
+				</div>
+				<div id="zoomWeak">
+					Weak To:<div id="zoomWeakIn" ng-bind="zoomWeaknesses"></div>
+				</div>
+				<div id="zoomStr">
+					Strong Against:<div id="zoomStrIn" ng-bind="zoomStrengths"></div>
+				</div>
+				<div id="zoomSStr">
+					Super Strong Against:<div id="zoomSStrIn" ng-bind="zoomSuperStrengths"></div>
+				</div>
+				<div id="zoomImmune">
+					Immune To:<div id="zoomImmuneIn" ng-bind="zoomImmunities"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
